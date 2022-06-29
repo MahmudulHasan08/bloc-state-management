@@ -5,27 +5,24 @@ import 'package:meta/meta.dart';
 part 'internet_event.dart';
 part 'internet_state.dart';
 
-class InternetBloc extends Bloc<InternetEvent,InternetState>{
-  Connectivity connectivity =Connectivity();
+class InternetBloc extends Bloc<InternetEvent, InternetState> {
+  Connectivity connectivity = Connectivity();
   StreamSubscription? streamSubscription;
-  InternetBloc():super(InternetInitial()){
+  InternetBloc() : super(InternetInitial()) {
     on<InternetLostEvent>((event, emit) => emit(InternetLostState()));
     on<InternetGainedEvent>((event, emit) => emit(InternetGainedState()));
     streamSubscription = connectivity.onConnectivityChanged.listen((result) {
-      if(result == ConnectivityResult.mobile || result == ConnectivityResult.wifi){
+      if (result == ConnectivityResult.mobile ||
+          result == ConnectivityResult.wifi) {
         add(InternetGainedEvent());
-      }else{
+      } else {
         add(InternetLostEvent());
       }
     });
-
-
   }
   @override
-  Future<void> close(){
+  Future<void> close() {
     streamSubscription?.cancel();
     return super.close();
   }
-
-
 }

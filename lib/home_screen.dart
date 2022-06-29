@@ -9,16 +9,37 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:
-            BlocBuilder<InternetBloc, InternetState>(builder: (context, state) {
-          if (state is InternetGainedState) {
-            return Text("connection is on");
-          } else if (state is InternetLostState) {
-            return Text("disconnected");
-          } else {
-            return Text("Loading");
-          }
-        }),
+        child: BlocConsumer<InternetBloc, InternetState>(
+          listener: (context, state) {
+            if (state is InternetGainedState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("data is connected"),
+                  backgroundColor: Colors.green,
+                  duration: Duration(seconds: 3),
+                ),
+              );
+            } else if (state is InternetLostState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("data is disconnected"),
+                  backgroundColor: Colors.red,
+                  duration: Duration(seconds: 3),
+                ),
+              );
+            }
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            if (state is InternetGainedState) {
+              return Text("connection is on");
+            } else if (state is InternetLostState) {
+              return Text("disconnected");
+            } else {
+              return Text("Loading");
+            }
+          },
+        ),
       ),
     );
   }
