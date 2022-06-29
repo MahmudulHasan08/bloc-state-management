@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_state/bloc/bloc/internet_bloc.dart';
+import 'package:flutter_state/cubits/internet_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,9 +12,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: BlocConsumer<InternetBloc, InternetState>(
+        child: BlocConsumer<InternetCubit, InternetState>(
           listener: (context, state) {
-            if (state is InternetGainedState) {
+            if (state == InternetState.gain) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("data is connected"),
@@ -19,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                   duration: Duration(seconds: 3),
                 ),
               );
-            } else if (state is InternetLostState) {
+            } else if (state == InternetState.lost) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("data is disconnected"),
@@ -31,9 +34,10 @@ class HomeScreen extends StatelessWidget {
             // TODO: implement listener
           },
           builder: (context, state) {
-            if (state is InternetGainedState) {
+            if (state == InternetState.gain) {
               return Text("connection is on");
-            } else if (state is InternetLostState) {
+            } else if (state == InternetState.lost) {
+              // ignore: prefer_const_constructors
               return Text("disconnected");
             } else {
               return Text("Loading");
