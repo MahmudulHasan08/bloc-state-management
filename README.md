@@ -2,13 +2,13 @@
 
 A new Flutter project.
 
-### this project have 3 branches 
+### This project have 3 branches 
  - Branches
-  - Main
-  - cubit
-  - validation_using_bloc
+   - Main
+   - cubit
+   - validation_using_bloc
 
-### Flutter pub
+### Flutter pub 
 ```
 flutter_bloc: any
 connectivity: ^3.0.6
