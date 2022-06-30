@@ -1,16 +1,20 @@
-# flutter_state
+# FLutter_State_Management_Using_bloc
 
 A new Flutter project.
 
-## Getting Started
+### this project have 3 branches 
+-Branches
+ -Main
+ -cubit
+ -validation_using_bloc
 
-This project is a starting point for a Flutter application.
+### Flutter pub
+```
+flutter_bloc: any
+connectivity: ^3.0.6
+email_validator: ^2.0.1
+get: ^4.6.5
 
-A few resources to get you started if this is your first Flutter project:
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p>   bloc part included in main branch <br> cubit part included in cubit branch <br> how to form validation using bloc pattern its included validation_using_bloc </>
