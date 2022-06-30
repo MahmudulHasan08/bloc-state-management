@@ -3,10 +3,10 @@
 A new Flutter project.
 
 ### this project have 3 branches 
--Branches
- -Main
- -cubit
- -validation_using_bloc
+ - Branches
+  - Main
+  - cubit
+  - validation_using_bloc
 
 ### Flutter pub
 ```
