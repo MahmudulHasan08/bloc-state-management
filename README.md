@@ -7,6 +7,7 @@ A new Flutter project.
    - Main
    - cubit
    - validation_using_bloc
+   - counter
 
 ### Flutter pub 
 ```
@@ -17,4 +18,4 @@ get: ^4.6.5
 
 ```
 
-<p>   bloc part included in main branch <br> cubit part included in cubit branch <br> how to form validation using bloc pattern its included validation_using_bloc </>
+<p>   bloc part included in main branch <br> cubit part included in cubit branch <br> how to form validation using bloc pattern its included validation_using_bloc <br> simple counter app in counter branch </>
