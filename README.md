@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-### This project have 3 branches 
+### This project have 4 branches 
  - Branches
    - Main
    - cubit
